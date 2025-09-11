@@ -1,4 +1,5 @@
 import { Department, CompanyInfo, Bureau } from '../types';
+import { Division } from '../types';
 
 export const BUREAUS: { [key: string]: Bureau[] } = {
   'land-cadastral': [
@@ -88,7 +89,17 @@ export const DEPARTMENTS: Department[] = [
     nameEn: 'Land and Cadastral Management Department',
     nameFr: 'Département Gestion Foncier et Cadastrale',
     color: 'bg-blue-700',
-    icon: 'MapPin'
+    icon: 'MapPin',
+    description: 'Expertise complète en gestion foncière et cadastrale avec des services juridiques et techniques spécialisés pour tous vos besoins immobiliers.',
+    descriptionEn: 'Complete expertise in land and cadastral management with specialized legal and technical services for all your real estate needs.',
+    services: [
+      'Études juridiques et conseil fonciers',
+      'Études techniques et topographiques', 
+      'Procédures administratives',
+      'Régularisation foncière',
+      'Bornage et délimitation'
+    ],
+    image: 'https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'financing',
@@ -96,7 +107,17 @@ export const DEPARTMENTS: Department[] = [
     nameEn: 'Real Estate and Land Financing Department',
     nameFr: 'Département Financement Foncier et Immobilier',
     color: 'bg-orange-500',
-    icon: 'CreditCard'
+    icon: 'CreditCard',
+    description: 'Solutions financières innovantes et partenariats stratégiques pour concrétiser vos projets immobiliers et fonciers.',
+    descriptionEn: 'Innovative financial solutions and strategic partnerships to realize your real estate and land projects.',
+    services: [
+      'Montage financier et ingénierie de projet',
+      'Partenariat et suivi investisseur',
+      'Coordination technique et administrative',
+      'Études de faisabilité',
+      'Recherche de financement'
+    ],
+    image: 'https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: 'sales-management',
@@ -104,7 +125,60 @@ export const DEPARTMENTS: Department[] = [
     nameEn: 'Real Estate Sales and Management Department',
     nameFr: 'Département Vente et Gestion Immobilière',
     color: 'bg-gray-600',
-    icon: 'Building'
+    icon: 'Building',
+    description: 'Commercialisation professionnelle et gestion complète de votre patrimoine immobilier avec un suivi juridique rigoureux.',
+    descriptionEn: 'Professional marketing and complete management of your real estate portfolio with rigorous legal monitoring.',
+    services: [
+      'Suivi juridique et régulation foncier',
+      'Commercialisation et réseau de vente',
+      'Gestion immobilier et locative',
+      'Évaluation immobilière',
+      'Marketing immobilier'
+    ],
+    image: 'https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=800'
+  }
+];
+
+export const DIVISIONS: Division[] = [
+  {
+    id: 'general-administration',
+    name: 'Division Administration Générale',
+    nameEn: 'General Administration Division',
+    nameFr: 'Division Administration Générale',
+    description: 'Gestion administrative globale, coordination des services et supervision des opérations quotidiennes de l\'entreprise.',
+    descriptionEn: 'Global administrative management, service coordination and supervision of daily business operations.',
+    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+    color: 'bg-indigo-600'
+  },
+  {
+    id: 'accounting-finance',
+    name: 'Division Comptabilité et Finance',
+    nameEn: 'Accounting and Finance Division',
+    nameFr: 'Division Comptabilité et Finance',
+    description: 'Gestion financière, comptabilité, contrôle budgétaire et analyse des performances économiques de l\'entreprise.',
+    descriptionEn: 'Financial management, accounting, budget control and analysis of the company\'s economic performance.',
+    image: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800',
+    color: 'bg-emerald-600'
+  },
+  {
+    id: 'human-resources',
+    name: 'Division Ressources Humaines',
+    nameEn: 'Human Resources Division',
+    nameFr: 'Division Ressources Humaines',
+    description: 'Gestion du personnel, recrutement, formation, développement des compétences et bien-être des employés.',
+    descriptionEn: 'Personnel management, recruitment, training, skills development and employee welfare.',
+    image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
+    color: 'bg-purple-600'
+  },
+  {
+    id: 'marketing-communication',
+    name: 'Division Marketing et Communication',
+    nameEn: 'Marketing and Communication Division',
+    nameFr: 'Division Marketing et Communication',
+    description: 'Stratégies marketing, communication corporate, relations publiques et développement de la marque.',
+    descriptionEn: 'Marketing strategies, corporate communication, public relations and brand development.',
+    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+    color: 'bg-rose-600'
   }
 ];
 
