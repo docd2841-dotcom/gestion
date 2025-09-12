@@ -5,8 +5,8 @@ import { useLanguage } from './hooks/useLanguage';
 import AnimatedBackground from './components/AnimatedBackground';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import LoginForm from './components/LoginForm';
-import DepartmentSelector from './components/DepartmentSelector';
-import DivisionSelector from './components/DivisionSelector';
+import UnifiedSelector from './components/UnifiedSelector';
+import DivisionDetail from './components/DivisionDetail';
 import DepartmentDetail from './components/DepartmentDetail';
 import Dashboard from './components/Dashboard';
 import { COMPANY_INFO } from './constants';
@@ -15,6 +15,7 @@ function App() {
   const { user, loading, login, selectDepartment, selectDivision, logout } = useAuth();
   const { language, setLanguage, t } = useLanguage();
   const [showDepartmentDetail, setShowDepartmentDetail] = React.useState<string | null>(null);
+  const [showDivisionDetail, setShowDivisionDetail] = React.useState<string | null>(null);
 
   const handleLogin = async (credentials: any) => {
     await login(credentials);
@@ -26,6 +27,23 @@ function App() {
       <DepartmentDetail
         departmentId={showDepartmentDetail}
         onBack={() => setShowDepartmentDetail(null)}
+        language={language}
+        setLanguage={setLanguage}
+      />
+    );
+  }
+
+  // Show division detail if requested
+  if (showDivisionDetail) {
+    return (
+      <DivisionDetail
+        divisionId={showDivisionDetail}
+        user={user!}
+        onBack={() => setShowDivisionDetail(null)}
+        onSelectOffice={(officeId) => {
+          // Here you would navigate to the office dashboard
+          console.log('Selected office:', officeId);
+        }}
         language={language}
         setLanguage={setLanguage}
       />
@@ -46,34 +64,22 @@ function App() {
     );
   }
 
-  // Show division selector if user has selected department but not division
-  if (user && user.currentDepartment && !user.currentDivision) {
+  // Show unified selector if user is logged in but hasn't selected department/division
+  if (user) {
     return (
-      <DivisionSelector
-        divisions={user.divisions}
-        onSelect={selectDivision}
-        t={t}
-        language={language}
-      />
-    );
-  }
-
-  // Show department selector if user is logged in but hasn't selected a department
-  if (user && user.departments.length > 1) {
-    return (
-      <DepartmentSelector
+      <UnifiedSelector
+        user={user}
         departments={user.departments}
-        onSelect={selectDepartment}
+        divisions={user.divisions}
+        onSelectDepartment={selectDepartment}
+        onSelectDivision={selectDivision}
+        onShowDepartmentDetail={setShowDepartmentDetail}
+        onShowDivisionDetail={setShowDivisionDetail}
         t={t}
         language={language}
+        setLanguage={setLanguage}
       />
     );
-  }
-
-  // Auto-select department if user has only one
-  if (user && user.departments.length === 1 && !user.currentDepartment) {
-    selectDepartment(user.departments[0]);
-    return null;
   }
 
   // Show login page

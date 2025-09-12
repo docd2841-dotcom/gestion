@@ -9,14 +9,14 @@ const MOCK_USERS: User[] = [
     name: 'Jean Dupont',
     email: 'jean@geocasagroup.com',
     departments: [DEPARTMENTS[0], DEPARTMENTS[1]], // Multiple departments
-    divisions: [DIVISIONS[0], DIVISIONS[1], DIVISIONS[2]] // Multiple divisions
+    divisions: [DIVISIONS[0], DIVISIONS[1]] // Multiple divisions
   },
   {
     id: '2',
     name: 'Marie Nguema',
     email: 'marie@geocasagroup.com',
     departments: [DEPARTMENTS[2]], // Single department
-    divisions: [DIVISIONS[3]] // Single division
+    divisions: [DIVISIONS[2]] // Single division
   },
   {
     id: '3',

@@ -39,6 +39,19 @@ export interface Division {
   descriptionEn: string;
   image: string;
   color: string;
+  offices: Office[];
+}
+
+export interface Office {
+  id: string;
+  name: string;
+  nameEn: string;
+  nameFr: string;
+  description: string;
+  descriptionEn: string;
+  image: string;
+  color: string;
+  divisionId: string;
 }
 
 export interface DocumentFlow {
